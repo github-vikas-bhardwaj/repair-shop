@@ -1,36 +1,47 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
+// eslint.config.mjs
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
-import prettier from "eslint-plugin-prettier/recommended";
-import tseslint from "@typescript-eslint/eslint-plugin";
+import tsPlugin from "@typescript-eslint/eslint-plugin";
+import reactPlugin from "eslint-plugin-react";
+import prettierPkg from "eslint-plugin-prettier/recommended";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const compat = new FlatCompat({ baseDirectory: process.cwd() });
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
+export default [
+  // Extend Next.js recommended configs
   ...compat.extends("next/core-web-vitals", "next/typescript"),
-  js.configs.recommended,
-  prettier,
 
-  // TS ESLint rules
+  js.configs.recommended,
+  prettierPkg,
+
   {
     plugins: {
-      "@typescript-eslint": tseslint,
+      react: reactPlugin,
+      "@typescript-eslint": tsPlugin,
     },
     rules: {
+      "react/react-in-jsx-scope": "off", // disable old requirement
       "prettier/prettier": "error",
-      "no-unused-vars": "off", // disable base rule for TS files
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        { argsIgnorePattern: "^_" },
-      ],
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+    },
+    settings: {
+      react: {
+        version: "detect",
+        jsxRuntime: "automatic", // critical for automatic JSX runtime
+      },
+    },
+    languageOptions: {
+      parserOptions: {
+        ecmaVersion: 2022,
+        sourceType: "module",
+        ecmaFeatures: { jsx: true },
+      },
+      globals: {
+        React: "readonly", // prevents no-undef errors in JSX
+      },
     },
   },
-];
 
-export default eslintConfig;
+  
+];
