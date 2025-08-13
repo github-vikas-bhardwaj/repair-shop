@@ -38,9 +38,10 @@
     "typescript": "^5"
   },
   "lint-staged": {
-  "*.{js,jsx,ts,tsx,mjs}": [
-    "prettier --write --parser babel",
-    "eslint --fix"
-  ]
-}
+    "*.{js,jsx,ts,tsx,mjs}": [
+      "prettier --write --parser babel",
+      "eslint --fix"
+    ],
+    "*.json": "prettier --write"
+  }
 }
