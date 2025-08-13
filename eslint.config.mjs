@@ -23,7 +23,10 @@ export default [
       "react/react-in-jsx-scope": "off", // disable old requirement
       "prettier/prettier": "error",
       "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { argsIgnorePattern: "^_" },
+      ],
     },
     settings: {
       react: {
@@ -42,6 +45,4 @@ export default [
       },
     },
   },
-
-  
 ];
