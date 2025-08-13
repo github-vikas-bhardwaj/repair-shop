@@ -1,5 +1,7 @@
 # Changelog
 
+## <small>0.2.1 (2025-08-13)</small>
+
 ## 0.2.0 (2025-08-13)
 
 * feat: lint staged, husky pre commit & commit-msg implemented ([52b0c24](https://github.com/github-vikas-bhardwaj/repair-shop/commit/52b0c24))
