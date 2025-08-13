@@ -1,0 +1,65 @@
+{
+  "git": {
+    "requireCleanWorkingDir": true,
+    "requireBranch": "main",
+    "tagName": "v${version}",
+    "commitMessage": "chore(release): ${version}",
+    "push": true
+  },
+  "github": {
+    "release": true
+  },
+  "npm": {
+    "publish": false
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          {
+            "type": "feat",
+            "section": "\uD83D\uDE80 Features"
+          },
+          {
+            "type": "fix",
+            "section": "\uD83D\uDC1E Bug Fixes"
+          },
+          {
+            "type": "perf",
+            "section": "\uD83D\uDCC8 Performance Improvements"
+          },
+          {
+            "type": "revert",
+            "section": "\uD83D\uDD04 Reverts"
+          },
+          {
+            "type": "docs",
+            "section": "\uD83D\uDCD6 Documentation"
+          },
+          {
+            "type": "refactor",
+            "section": "\uD83D\uDD28 Code Refactoring"
+          },
+          {
+            "type": "test",
+            "section": "\uD83E\uDDEA Tests"
+          },
+          {
+            "type": "build",
+            "section": "\uD83C\uDFD7 Build System"
+          },
+          {
+            "type": "ci",
+            "section": "\uD83E\uDD16 Continuous Integration"
+          },
+          {
+            "type": "chore",
+            "section": "\uD83D\uDD27 Chores"
+          }
+        ]
+      }
+    }
+  }
+}
