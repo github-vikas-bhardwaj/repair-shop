@@ -39,7 +39,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs}": [
-      "prettier --write --parser babel",
+      "prettier --write",
       "eslint --fix"
     ],
     "*.json": "prettier --write"
