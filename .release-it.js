@@ -6,7 +6,7 @@ module.exports = {
     tagName: "v${version}",
     push: true,
     pushArgs: ["--set-upstream", "origin", "release/v${version}"],
-    requireBranch: /^release\/.*/,
+    requireBranch: "release/.*", // ✅ regex as string, not RegExp object
   },
   github: {
     release: true,
