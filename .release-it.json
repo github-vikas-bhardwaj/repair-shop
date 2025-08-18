@@ -5,7 +5,6 @@
     "commitMessage": "chore(release): ${version}",
     "tagName": "v${version}",
     "push": true,
-    "pushArgs": ["--set-upstream", "origin", "release/v${version}"],
     "requireBranch": "release/**"
   },
   "github": {
